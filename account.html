@@ -1,73 +1,90 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="./css/style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
+      integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="stylesheet" href="./css/account.css" />
+    <link rel="stylesheet" href="./main.css" />
+  </head>
 
-<head>
-  <meta charset="UTF-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Document</title>
-  <link rel="stylesheet" href="./css/account.css" />
-  <link rel="stylesheet" href="./css/style.css" />
-</head>
+  <body onload="">
+    <div class="header__container">
+      <a href="#" class="logo-link"
+        ><img class="logo-link__img" src="./Img/logo-light.png" alt="#"
+      /></a>
+      <div class="group">
+        <ul class="navigation">
+          <li class="navigation__list">
+            <a class="navigation__list-link" href="./index.html">Home</a>
+          </li>
+          <li class="navigation__list">
+            <a class="navigation__list-link" href="#">About</a>
+          </li>
+          <li class="navigation__list">
+            <a class="navigation__list-link" href="./product.html">Product</a>
+          </li>
+          <li class="navigation__list">
+            <a class="navigation__list-link" href="#">Blog</a>
+          </li>
+          <li class="navigation__list">
+            <a class="navigation__list-link" href="./account.html">Contact</a>
+          </li>
+        </ul>
 
-<body>
-  <div class="header__container">
-    <a href="#" class="logo-link"><img class="logo-link__img" src="./Img/logo-light.png" alt="#"></a>
-    <div class="group">
-      <ul class="navigation">
-        <li class="navigation__list"><a class="navigation__list-link" href="./index.html">Home</a></li>
-        <li class="navigation__list"><a class="navigation__list-link" href="#">About</a></li>
-        <li class="navigation__list"><a class="navigation__list-link" href="./product.html">Product</a></li>
-        <li class="navigation__list"><a class="navigation__list-link" href="#">Blog</a></li>
-        <li class="navigation__list"><a class="navigation__list-link" href="./account.html">Contact</a></li>
-      </ul>
+        <div class="search">
+          <span class="icon">
+            <i class="fas fa-search searchBTN"></i>
+            <i class="far fa-window-close closeBTN"></i>
+          </span>
+        </div>
 
-      <div class="search">
-        <span class="icon">
-          <i class="fas fa-search searchBTN"></i>
-          <i class="far fa-window-close closeBTN"></i>
-        </span>
+        <i class="fa-solid fa-bars menuToggle"></i>
       </div>
 
-      <i class="fa-solid fa-bars menuToggle"></i>
+      <div class="searchBox">
+        <input class="searchBox__input" type="text" placeholder="Search" />
+      </div>
+      <script>
+        let searchBTN = document.querySelector(".searchBTN");
+        let closeBTN = document.querySelector(".closeBTN");
+        let searchBox = document.querySelector(".searchBox");
+        let navigation = document.querySelector(".navigation");
+        let menuToggle = document.querySelector(".menuToggle");
+        let header = document.querySelector(".header");
+
+        searchBTN.onclick = function () {
+          searchBox.classList.add("active");
+          closeBTN.classList.add("active");
+          searchBTN.classList.add("active");
+          menuToggle.classList.add("hide");
+          header.classList.remove("open");
+        };
+
+        closeBTN.onclick = function () {
+          searchBox.classList.remove("active");
+          closeBTN.classList.remove("active");
+          searchBTN.classList.remove("active");
+          menuToggle.classList.remove("hide");
+        };
+
+        menuToggle.onclick = function () {
+          header.classList.toggle("open");
+          searchBox.classList.remove("active");
+          closeBTN.classList.remove("active");
+          searchBTN.classList.remove("active");
+        };
+      </script>
     </div>
-
-    <div class="searchBox">
-      <input class="searchBox__input" type="text" placeholder="Search">
-    </div>
-    <script>
-      let searchBTN = document.querySelector('.searchBTN');
-      let closeBTN = document.querySelector('.closeBTN');
-      let searchBox = document.querySelector('.searchBox');
-      let navigation = document.querySelector('.navigation');
-      let menuToggle = document.querySelector('.menuToggle');
-      let header = document.querySelector('.header');
-
-      searchBTN.onclick = function () {
-        searchBox.classList.add('active');
-        closeBTN.classList.add('active');
-        searchBTN.classList.add('active');
-        menuToggle.classList.add('hide');
-        header.classList.remove('open');
-
-      }
-
-      closeBTN.onclick = function () {
-        searchBox.classList.remove('active');
-        closeBTN.classList.remove('active');
-        searchBTN.classList.remove('active');
-        menuToggle.classList.remove('hide');
-
-      }
-
-      menuToggle.onclick = function () {
-        header.classList.toggle('open');
-        searchBox.classList.remove('active');
-        closeBTN.classList.remove('active');
-        searchBTN.classList.remove('active');
-      }
-    </script>
-  </div>
 
 
   <div class="form">
