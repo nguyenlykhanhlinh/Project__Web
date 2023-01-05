@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Document</title>
+  <link rel="stylesheet" href="./css/account.css" />
+  <link rel="stylesheet" href="./css/style.css" />
+</head>
+
+<body>
+  <div class="header__container">
+    <a href="#" class="logo-link"><img class="logo-link__img" src="./Img/logo-light.png" alt="#"></a>
+    <div class="group">
+      <ul class="navigation">
+        <li class="navigation__list"><a class="navigation__list-link" href="./index.html">Home</a></li>
+        <li class="navigation__list"><a class="navigation__list-link" href="#">About</a></li>
+        <li class="navigation__list"><a class="navigation__list-link" href="./product.html">Product</a></li>
+        <li class="navigation__list"><a class="navigation__list-link" href="#">Blog</a></li>
+        <li class="navigation__list"><a class="navigation__list-link" href="./account.html">Contact</a></li>
+      </ul>
+
+      <div class="search">
+        <span class="icon">
+          <i class="fas fa-search searchBTN"></i>
+          <i class="far fa-window-close closeBTN"></i>
+        </span>
+      </div>
+
+      <i class="fa-solid fa-bars menuToggle"></i>
+    </div>
+
+    <div class="searchBox">
+      <input class="searchBox__input" type="text" placeholder="Search">
+    </div>
+    <script>
+      let searchBTN = document.querySelector('.searchBTN');
+      let closeBTN = document.querySelector('.closeBTN');
+      let searchBox = document.querySelector('.searchBox');
+      let navigation = document.querySelector('.navigation');
+      let menuToggle = document.querySelector('.menuToggle');
+      let header = document.querySelector('.header');
+
+      searchBTN.onclick = function () {
+        searchBox.classList.add('active');
+        closeBTN.classList.add('active');
+        searchBTN.classList.add('active');
+        menuToggle.classList.add('hide');
+        header.classList.remove('open');
+
+      }
+
+      closeBTN.onclick = function () {
+        searchBox.classList.remove('active');
+        closeBTN.classList.remove('active');
+        searchBTN.classList.remove('active');
+        menuToggle.classList.remove('hide');
+
+      }
+
+      menuToggle.onclick = function () {
+        header.classList.toggle('open');
+        searchBox.classList.remove('active');
+        closeBTN.classList.remove('active');
+        searchBTN.classList.remove('active');
+      }
+    </script>
+  </div>
+
+
+  <div class="form">
+    <div class="account">
+      <div class="lable-account">
+        <div class="form-login__heading-login">
+          <span>Đăng nhập</span>
+        </div>
+        <div class="form-login__heading-register">
+          <span>Đăng ký</span>
+        </div>
+      </div>
+      <div class="form-login">
+        <form action="">
+          <div class="form-login__login-form">
+            <div class="form-login__username">
+              <p>Số điện thoại/Email</p>
+              <input type="text" placeholder="Nhập số điện thoại hoặc email" />
+            </div>
+            <div class="form-login__password">
+              <p>Mật khẩu</p>
+              <input type="password" placeholder="Nhập mật khẩu" />
+            </div>
+            <div class="form-login__forget-password">
+              <a href="#">
+                <span>Quên mật khẩu?</span>
+              </a>
+            </div>
+            <div class="form-login__btn-login">
+              <button>Đăng nhập</button>
+            </div>
+          </div>
+        </form>
+      </div>
+
+      <div class="form-register">
+        <form action="">
+          <div class="form-register__register-form">
+            <div class="form-register__username">
+              <p>Số điện thoại/Email</p>
+              <input type="text" placeholder="Nhập số điện thoại hoặc email" />
+            </div>
+            <div class="form-register__password">
+              <p>Mật khẩu</p>
+              <input type="password" placeholder="Nhập mật khẩu" />
+            </div>
+            <div class="form-register__password">
+              <p>Xác Nhận Mật khẩu</p>
+              <input type="password" placeholder="Xác nhận mật khẩu" />
+            </div>
+            <div class="form-register__btn-register">
+              <button>Đăng ký</button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <script src="./js/account.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,1152 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bakery Shop Website</title>
+    <!--Font awesome-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
+        integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <!-- <link rel="stylesheet" href="assets/css/style/styles.css">
+    <link rel="stylesheet" href="assets/css/style/base.css"> -->
+    <link rel="stylesheet" href="./main.css">
+</head>
+
+<body>
+    <!-- Phần HEADER -->
+    <div class="header__container">
+        <a href="#" class="logo-link"><img class="logo-link__img" src="./Img/logo-light.png" alt="#"></a>
+        <div class="group">
+            <ul class="navigation">
+                <li class="navigation__list"><a class="navigation__list-link" href="./index.html">Home</a></li>
+                <li class="navigation__list"><a class="navigation__list-link" href="#">About</a></li>
+                <li class="navigation__list"><a class="navigation__list-link" href="./product.html">Product</a></li>
+                <li class="navigation__list"><a class="navigation__list-link" href="#">Blog</a></li>
+                <li class="navigation__list"><a class="navigation__list-link" href="./account.html">Contact</a></li>
+            </ul>
+
+            <div class="search">
+                <span class="icon">
+                    <i class="fas fa-search searchBTN"></i>
+                    <i class="far fa-window-close closeBTN"></i>
+                </span>
+            </div>
+
+            <i class="fa-solid fa-bars menuToggle"></i>
+        </div>
+
+        <div class="searchBox">
+            <input class="searchBox__input" type="text" placeholder="Search">
+        </div>
+        <script>
+            let searchBTN = document.querySelector('.searchBTN');
+            let closeBTN = document.querySelector('.closeBTN');
+            let searchBox = document.querySelector('.searchBox');
+            let navigation = document.querySelector('.navigation');
+            let menuToggle = document.querySelector('.menuToggle');
+            let header = document.querySelector('.header');
+
+            searchBTN.onclick = function () {
+                searchBox.classList.add('active');
+                closeBTN.classList.add('active');
+                searchBTN.classList.add('active');
+                menuToggle.classList.add('hide');
+                header.classList.remove('open');
+
+            }
+
+            closeBTN.onclick = function () {
+                searchBox.classList.remove('active');
+                closeBTN.classList.remove('active');
+                searchBTN.classList.remove('active');
+                menuToggle.classList.remove('hide');
+
+            }
+
+            menuToggle.onclick = function () {
+                header.classList.toggle('open');
+                searchBox.classList.remove('active');
+                closeBTN.classList.remove('active');
+                searchBTN.classList.remove('active');
+            }
+        </script>
+    </div>
+
+    <!-- Phần SLIDER -->
+    <div class="sliderWrap">
+        <div class="slider">
+            <div class="slider__Items">
+                <img class="slider__bakery active" src="./Img/bakery-1.jpg" alt="">
+                <div class="slider__info">
+                    <h1 class="slider__content">we keep traditions of baking</h1>
+                </div>
+            </div>
+
+            <div class="slider__Items">
+                <img class="slider__bakery" src="./Img/6-5.png" alt="">
+                <div class="slider__info">
+                    <h1 class="slider__content">we keep traditions of baking</h1>
+                </div>
+            </div>
+
+            <div class="slider__Items">
+                <img class="slider__bakery" src="./Img/bakery-2.jpg" alt="">
+                <div class="slider__info">
+                    <h1 class="slider__content">we keep traditions of baking</h1>
+                </div>
+            </div>
+
+            <div class="slider__Items">
+                <img class="slider__bakery" src="./Img/bakery-3.jpg" alt="">
+                <div class="slider__info">
+                    <h1 class="slider__content">we keep traditions of baking</h1>
+                </div>
+            </div>
+
+            <div class="slider__Items">
+                <img class="slider__bakery" src="./Img/slide-1.jpg" alt="">
+                <div class="slider__info">
+                    <h1 class="slider__content">we keep traditions of baking</h1>
+                </div>
+            </div>
+
+            <div class="slider__nav">
+                <i class='fas fa-chevron-left prev-btn'></i>
+                <i class='fas fa-chevron-right next-btn'></i>
+            </div>
+
+            <div class="slider__nav-visibility">
+                <div class="slider__icon active"></div>
+                <div class="slider__icon"></div>
+                <div class="slider__icon"></div>
+                <div class="slider__icon"></div>
+                <div class="slider__icon"></div>
+            </div>
+        </div>
+
+        <script type="text/javascript">
+            const slider = document.querySelector(".slider");
+            const nextBTN = document.querySelector(".next-btn");
+            const prevBTN = document.querySelector(".prev-btn");
+            const slides = document.querySelectorAll(".slider__bakery");
+            const slideIcons = document.querySelectorAll(".slider__icon");
+            const numberOfSlides = slides.length;
+            var slideNumber = 0;
+
+            // img slider next-button 
+            nextBTN.addEventListener("click", () => {
+                slides.forEach((slideContainer) => {
+                    slideContainer.classList.remove("active");
+                });
+
+                slideIcons.forEach((slideIcon) => {
+                    slideIcon.classList.remove("active");
+                });
+
+
+                slideNumber++;
+
+                if (slideNumber > (numberOfSlides - 1)) {
+                    slideNumber = 0;
+                }
+
+                slides[slideNumber].classList.add("active");
+                slideIcons[slideNumber].classList.add("active");
+            });
+
+            // img slider prev-button
+            prevBTN.addEventListener("click", () => {
+                slides.forEach((slideContainer) => {
+                    slideContainer.classList.remove("active");
+                });
+
+                slideIcons.forEach((slideIcon) => {
+                    slideIcon.classList.remove("active");
+                });
+
+
+                slideNumber--;
+
+                if (slideNumber < 0) {
+                    slideNumber = numberOfSlides - 1;
+                }
+
+                slides[slideNumber].classList.add("active");
+                slideIcons[slideNumber].classList.add("active");
+            });
+
+
+            // img slider Autoplay
+            var playSlider;
+            var repeater = () => {
+                playSlider = setInterval(function () {
+                    slides.forEach((slideContainer) => {
+                        slideContainer.classList.remove("active");
+                    });
+
+                    slideIcons.forEach((slideIcon) => {
+                        slideIcon.classList.remove("active");
+                    });
+
+
+                    slideNumber++;
+
+                    if (slideNumber > (numberOfSlides - 1)) {
+                        slideNumber = 0;
+                    }
+
+                    slides[slideNumber].classList.add("active");
+                    slideIcons[slideNumber].classList.add("active");
+                }, 2000);
+            }
+
+            repeater();
+
+            // Stop img slider Autoplay on mouseover
+            slider.addEventListener("mouseover", () => {
+                clearInterval(playSlider)
+            });
+
+
+            // Start img slider Autoplay again on mouseout 
+            slider.addEventListener("mouseout", () => {
+                repeater();
+            });
+        </script>
+    </div>
+
+
+    <!-- Phần Award -->
+    <div class="award">
+        <!-- Phần section-container-->
+        <div class="container">
+            <!-- tiêu đề giải thưởng  -->
+            <div class="award__header">
+                <h3 class="award__title">Delicieux</h3>
+                <p class="award__wel">WELCOME TO THE STORE</p>
+                <span>
+                    <img src="./Img/floral.png" alt="" class="award__img-header">
+                </span>
+            </div>
+
+            <!-- Phần giải thưởng  -->
+            <div class="award__content">
+                <ul class="award__list-award row">
+                    <li class="award__item-award">
+                        <img src="./Img/award-1.png" alt="" class="award__img">
+                        <h4 class="award__name">
+                            BAKERY OF THE YEAR
+                        </h4>
+                        <span class="award__year">2011-2012</span>
+                        <p class="award__description">
+                            Tart bear claw cake tiramisu chocolate bar gummies dragée lemon drops brownie.
+                            Jujubes chocolate cake sesame snaps
+                        </p>
+                    </li>
+
+                    <li class="award__item-award">
+                        <img src="./Img/award-1.png" alt="" class="award__img">
+                        <h4 class="award__name">
+                            BAKERY OF THE YEAR
+                        </h4>
+                        <span class="award__year">2011-2012</span>
+                        <p class="award__description">
+                            Tart bear claw cake tiramisu chocolate bar gummies dragée lemon drops brownie.
+                            Jujubes chocolate cake sesame snaps
+                        </p>
+                    </li>
+
+                    <li class="award__item-award">
+                        <img src="./Img/award-1.png" alt="" class="award__img">
+                        <h4 class="award__name">
+                            BAKERY OF THE YEAR
+                        </h4>
+                        <span class="award__year">2011-2012</span>
+                        <p class="award__description">
+                            Tart bear claw cake tiramisu chocolate bar gummies dragée lemon drops brownie.
+                            Jujubes chocolate cake sesame snaps
+                        </p>
+                    </li>
+                </ul>
+            </div>
+
+        </div>
+
+        <!--CEO-VISION-->
+        <div class="CEO">
+            <!-- Phần ảnh  -->
+            <img src="./Img/signature.png" alt="" class="CEO__img">
+
+            <!--Content-sign-->
+            <div class="CEO__content">
+                <!-- Introduction -->
+                <p class="CEO__intro">
+                    “It seems that every country that can get its hands on butter has
+                    its opinion of what butter cream frosting should be. Some are
+                    made with eggs and butter.”
+                </p>
+                <span class="CEO__name-sign">
+                    <p class="CEO__name">Sunshine - CEO Bakery</p>
+                    <img src="./Img/signature-2.png" alt="" class="CEO__sign-img">
+                </span>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Phần Product -->
+    <!--Product-main-->
+    <div class="product">
+        <!-- product-section__container chứa header+content  -->
+        <div class="container">
+            <!-- Phần header + content -->
+            <div class="product__header">
+                <h3 class="product-header__title">Bread of the day</h3>
+                <p class="product-header__bread">DELIVERING TO YOUR DOOR</p>
+                <img src="./Img/floral.png" alt="" class="product-header__img">
+            </div>
+
+            <!-- Phần product-list__content -->
+            <div class="product__content">
+                <div class="product__list">
+                    <div class="product__item">
+                        <div href="" class="product__item-link">
+                            <a href="product.html">
+                                <img src="./Img/12-1.png.webp" alt="" class="product__img">
+                                <div class="product__new-pro">
+                                    <img src="./Img/badge-red.png" alt="" class="product__new-img">
+                                    <i class="product__new-des">New</i>
+                                </div>
+                            </a>
+
+                            <div class="product__action-user">
+                                <ul class="product__list-action-user">
+                                    <li class="product__item-action-user">
+                                        <a href="" class="product__action-user-link">
+                                            <i class="product__action-user-icon fas fa-search"></i>
+                                        </a>
+                                    </li>
+                                    <li class="product__item-action-user">
+                                        <a href="" class="product__action-user-link">
+                                            <i class="product__action-user-icon fa-solid fa-heart"></i>
+                                        </a>
+                                    </li>
+                                    <li class="product__item-action-user">
+                                        <a href="" class="product__action-user-link">
+                                            <i class="product__action-user-icon fa-solid fa-cart-shopping"></i>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="product__item-content">
+                            <a href="product.html" class="item__link">
+                                <h4 class="product__item-name">Red sugar flower</h4>
+                            </a>
+                            <div class="product__types">
+                                <a href="" class="product__type-link">BAKERY</a>
+                                <span class="product__type-separate"> - </span>
+                                <a href="" class="product__type-link">SWEET</a>
+                                <span class="product__type-separate"> - </span>
+                                <a href="" class="product__type-link">BIO</a>
+                            </div>
+
+                            <div class="product__rate">
+                                <ul class="product__list-star">
+                                    <li class="product__rate-star product__rate-star--active">
+                                        <i class="product__star-icon fa-solid fa-star"></i>
+                                    </li>
+                                    <li class="product__rate-star product__rate-star--active">
+                                        <i class="product__star-icon fa-solid fa-star"></i>
+                                    </li>
+                                    <li class="product__rate-star product__rate-star--active">
+                                        <i class="product__star-icon fa-solid fa-star"></i>
+                                    </li>
+                                    <li class="product__rate-star product__rate-star--active">
+                                        <i class="product__star-icon fa-solid fa-star"></i>
+                                    </li>
+                                    <li class="product__rate-star product__rate-star--active">
+                                        <i class="product__star-icon fa-solid fa-star"></i>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="product__price">
+                                <span class="product__price-curent">5.00$</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="product__item">
+                        <div href="" class="product__item-link">
+                            <a href="product.html">
+                                <img src="./Img/11-1-600x462.png.webp" alt="" class="product__img">
+                                <div class="product__new-pro">
+                                    <img src="./Img/badge-red.png" alt="" class="product__new-img">
+                                    <i class="product__new-des">New</i>
+                                </div>
+                            </a>
+                            <div class="product__action-user">
+                                <ul class="product__list-action-user">
+                                    <li class="product__item-action-user">
+                                        <a href="" class="product__action-user-link">
+                                            <i class="product__action-user-icon fas fa-search"></i>
+                                        </a>
+                                    </li>
+                                    <li class="product__item-action-user">
+                                        <a href="" class="product__action-user-link">
+                                            <i class="product__action-user-icon fa-solid fa-heart"></i>
+                                        </a>
+                                    </li>
+                                    <li class="product__item-action-user">
+                                        <a href="" class="product__action-user-link">
+                                            <i class="product__action-user-icon fa-solid fa-cart-shopping"></i>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="product__item-content">
+                            <a href="product.html" class="item__link">
+                                <h4 class="product__item-name">Red sugar flower</h4>
+                            </a>
+                            <div class="product__types">
+                                <a href="" class="product__type-link">BAKERY</a>
+                                <span class="product__type-separate"> - </span>
+                                <a href="" class="product__type-link">SWEET</a>
+                                <span class="product__type-separate"> - </span>
+                                <a href="" class="product__type-link">BIO</a>
+                            </div>
+
+                            <div class="product__rate">
+                                <ul class="product__list-star">
+                                    <li class="product__rate-star product__rate-star--active">
+                                        <i class="product__star-icon fa-solid fa-star"></i>
+                                    </li>
+                                    <li class="product__rate-star product__rate-star--active">
+                                        <i class="product__star-icon fa-solid fa-star"></i>
+                                    </li>
+                                    <li class="product__rate-star product__rate-star--active">
+                                        <i class="product__star-icon fa-solid fa-star"></i>
+                                    </li>
+                                    <li class="product__rate-star product__rate-star--active">
+                                        <i class="product__star-icon fa-solid fa-star"></i>
+                                    </li>
+                                    <li class="product__rate-star product__rate-star--active">
+                                        <i class="product__star-icon fa-solid fa-star"></i>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="product__price">
+                                <span class="product__price-curent">5.00$</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="product__item">
+                        <div class="product__item-link">
+                            <a href="product.html">
+                                <img src="./Img/10-1-600x462.png.webp" alt="" class="product__img">
+                            </a>
+                            <div class="product__action-user">
+                                <ul class="product__list-action-user">
+                                    <li class="product__item-action-user">
+                                        <a href="" class="product__action-user-link">
+                                            <i class="product__action-user-icon fas fa-search"></i>
+                                        </a>
+                                    </li>
+                                    <li class="product__item-action-user">
+                                        <a href="" class="product__action-user-link">
+                                            <i class="product__action-user-icon fa-solid fa-heart"></i>
+                                        </a>
+                                    </li>
+                                    <li class="product__item-action-user">
+                                        <a href="" class="product__action-user-link">
+                                            <i class="product__action-user-icon fa-solid fa-cart-shopping"></i>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="product__item-content">
+                            <a href="product.html" class="item__link">
+                                <h4 class="product__item-name">Red sugar flower</h4>
+                            </a>
+                            <div class="product__types">
+                                <a href="" class="product__type-link">BAKERY</a>
+                                <span class="product__type-separate"> - </span>
+                                <a href="" class="product__type-link">SWEET</a>
+                                <span class="product__type-separate"> - </span>
+                                <a href="" class="product__type-link">BIO</a>
+                            </div>
+
+                            <div class="product__rate">
+                                <ul class="product__list-star">
+                                    <li class="product__rate-star product__rate-star--active">
+                                        <i class="product__star-icon fa-solid fa-star"></i>
+                                    </li>
+                                    <li class="product__rate-star product__rate-star--active">
+                                        <i class="product__star-icon fa-solid fa-star"></i>
+                                    </li>
+                                    <li class="product__rate-star product__rate-star--active">
+                                        <i class="product__star-icon fa-solid fa-star"></i>
+                                    </li>
+                                    <li class="product__rate-star product__rate-star--active">
+                                        <i class="product__star-icon fa-solid fa-star"></i>
+                                    </li>
+                                    <li class="product__rate-star product__rate-star--active">
+                                        <i class="product__star-icon fa-solid fa-star"></i>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="product__price">
+                                <span class="product__price-curent">5.00$</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="product__item">
+                        <div href="" class="product__item-link">
+                            <a href="product.html">
+                                <img src="./Img/9-1-600x462.png.webp" alt="" class="product__img">
+                            </a>
+                            <div class="product__action-user">
+                                <ul class="product__list-action-user">
+                                    <li class="product__item-action-user">
+                                        <a href="" class="product__action-user-link">
+                                            <i class="product__action-user-icon fas fa-search"></i>
+                                        </a>
+                                    </li>
+                                    <li class="product__item-action-user">
+                                        <a href="" class="product__action-user-link">
+                                            <i class="product__action-user-icon fa-solid fa-heart"></i>
+                                        </a>
+                                    </li>
+                                    <li class="product__item-action-user">
+                                        <a href="" class="product__action-user-link">
+                                            <i class="product__action-user-icon fa-solid fa-cart-shopping"></i>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="product__item-content">
+                            <a href="product.html" class="item__link">
+                                <h4 class="product__item-name">Red sugar flower</h4>
+                            </a>
+                            <div class="product__types">
+                                <a href="" class="product__type-link">BAKERY</a>
+                                <span class="product__type-separate"> - </span>
+                                <a href="" class="product__type-link">SWEET</a>
+                                <span class="product__type-separate"> - </span>
+                                <a href="" class="product__type-link">BIO</a>
+                            </div>
+
+                            <div class="product__rate">
+                                <ul class="product__list-star">
+                                    <li class="product__rate-star product__rate-star--active">
+                                        <i class="product__star-icon fa-solid fa-star"></i>
+                                    </li>
+                                    <li class="product__rate-star product__rate-star--active">
+                                        <i class="product__star-icon fa-solid fa-star"></i>
+                                    </li>
+                                    <li class="product__rate-star product__rate-star--active">
+                                        <i class="product__star-icon fa-solid fa-star"></i>
+                                    </li>
+                                    <li class="product__rate-star product__rate-star--active">
+                                        <i class="product__star-icon fa-solid fa-star"></i>
+                                    </li>
+                                    <li class="product__rate-star product__rate-star--active">
+                                        <i class="product__star-icon fa-solid fa-star"></i>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="product__price">
+                                <span class="product__price-curent">5.00$</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="product__item">
+                        <div href="" class="product__item-link">
+                            <a href="product.html">
+                                <img src="./Img/8-1.png.webp" alt="" class="product__img">
+                            </a>
+                            <div class="product__action-user">
+                                <ul class="product__list-action-user">
+                                    <li class="product__item-action-user">
+                                        <a href="" class="product__action-user-link">
+                                            <i class="product__action-user-icon fas fa-search"></i>
+                                        </a>
+                                    </li>
+                                    <li class="product__item-action-user">
+                                        <a href="" class="product__action-user-link">
+                                            <i class="product__action-user-icon fa-solid fa-heart"></i>
+                                        </a>
+                                    </li>
+                                    <li class="product__item-action-user">
+                                        <a href="" class="product__action-user-link">
+                                            <i class="product__action-user-icon fa-solid fa-cart-shopping"></i>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="product__item-content">
+                            <a href="product.html" class="item__link">
+                                <h4 class="product__item-name">Red sugar flower</h4>
+                            </a>
+                            <div class="product__types">
+                                <a href="" class="product__type-link">BAKERY</a>
+                                <span class="product__type-separate"> - </span>
+                                <a href="" class="product__type-link">SWEET</a>
+                                <span class="product__type-separate"> - </span>
+                                <a href="" class="product__type-link">BIO</a>
+                            </div>
+
+                            <div class="product__rate">
+                                <ul class="product__list-star">
+                                    <li class="product__rate-star product__rate-star--active">
+                                        <i class="product__star-icon fa-solid fa-star"></i>
+                                    </li>
+                                    <li class="product__rate-star product__rate-star--active">
+                                        <i class="product__star-icon fa-solid fa-star"></i>
+                                    </li>
+                                    <li class="product__rate-star product__rate-star--active">
+                                        <i class="product__star-icon fa-solid fa-star"></i>
+                                    </li>
+                                    <li class="product__rate-star product__rate-star--active">
+                                        <i class="product__star-icon fa-solid fa-star"></i>
+                                    </li>
+                                    <li class="product__rate-star product__rate-star--active">
+                                        <i class="product__star-icon fa-solid fa-star"></i>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="product__price">
+                                <span class="product__price-curent">5.00$</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="product__item">
+                        <div href="" class="product__item-link">
+                            <a href="product.html">
+                                <img src="./Img/7-1.png.webp" alt="" class="product__img">
+                            </a>
+                            <div class="product__action-user">
+                                <ul class="product__list-action-user">
+                                    <li class="product__item-action-user">
+                                        <a href="" class="product__action-user-link">
+                                            <i class="product__action-user-icon fas fa-search"></i>
+                                        </a>
+                                    </li>
+                                    <li class="product__item-action-user">
+                                        <a href="" class="product__action-user-link">
+                                            <i class="product__action-user-icon fa-solid fa-heart"></i>
+                                        </a>
+                                    </li>
+                                    <li class="product__item-action-user">
+                                        <a href="" class="product__action-user-link">
+                                            <i class="product__action-user-icon fa-solid fa-cart-shopping"></i>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="product__item-content">
+                            <a href="product.html" class="item__link">
+                                <h4 class="product__item-name">Red sugar flower</h4>
+                            </a>
+                            <div class="product__types">
+                                <a href="" class="product__type-link">BAKERY</a>
+                                <span class="product__type-separate"> - </span>
+                                <a href="" class="product__type-link">SWEET</a>
+                                <span class="product__type-separate"> - </span>
+                                <a href="" class="product__type-link">BIO</a>
+                            </div>
+
+                            <div class="product__rate">
+                                <ul class="product__list-star">
+                                    <li class="product__rate-star product__rate-star--active">
+                                        <i class="product__star-icon fa-solid fa-star"></i>
+                                    </li>
+                                    <li class="product__rate-star product__rate-star--active">
+                                        <i class="product__star-icon fa-solid fa-star"></i>
+                                    </li>
+                                    <li class="product__rate-star product__rate-star--active">
+                                        <i class="product__star-icon fa-solid fa-star"></i>
+                                    </li>
+                                    <li class="product__rate-star product__rate-star--active">
+                                        <i class="product__star-icon fa-solid fa-star"></i>
+                                    </li>
+                                    <li class="product__rate-star product__rate-star--active">
+                                        <i class="product__star-icon fa-solid fa-star"></i>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="product__price">
+                                <span class="product__price-curent">5.00$</span>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="product__item">
+                        <div href="" class="product__item-link">
+                            <a href="product.html">
+                                <img src="./Img/8-1.png.webp" alt="" class="product__img">
+                            </a>
+                            <div class="product__action-user">
+                                <ul class="product__list-action-user">
+                                    <li class="product__item-action-user">
+                                        <a href="" class="product__action-user-link">
+                                            <i class="product__action-user-icon fas fa-search"></i>
+                                        </a>
+                                    </li>
+                                    <li class="product__item-action-user">
+                                        <a href="" class="product__action-user-link">
+                                            <i class="product__action-user-icon fa-solid fa-heart"></i>
+                                        </a>
+                                    </li>
+                                    <li class="product__item-action-user">
+                                        <a href="" class="product__action-user-link">
+                                            <i class="product__action-user-icon fa-solid fa-cart-shopping"></i>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="product__item-content">
+                            <a href="product.html" class="item__link">
+                                <h4 class="product__item-name">Red sugar flower</h4>
+                            </a>
+                            <div class="product__types">
+                                <a href="" class="product__type-link">BAKERY</a>
+                                <span class="product__type-separate"> - </span>
+                                <a href="" class="product__type-link">SWEET</a>
+                                <span class="product__type-separate"> - </span>
+                                <a href="" class="product__type-link">BIO</a>
+                            </div>
+
+                            <div class="product__rate">
+                                <ul class="product__list-star">
+                                    <li class="product__rate-star product__rate-star--active">
+                                        <i class="product__star-icon fa-solid fa-star"></i>
+                                    </li>
+                                    <li class="product__rate-star product__rate-star--active">
+                                        <i class="product__star-icon fa-solid fa-star"></i>
+                                    </li>
+                                    <li class="product__rate-star product__rate-star--active">
+                                        <i class="product__star-icon fa-solid fa-star"></i>
+                                    </li>
+                                    <li class="product__rate-star product__rate-star--active">
+                                        <i class="product__star-icon fa-solid fa-star"></i>
+                                    </li>
+                                    <li class="product__rate-star product__rate-star--active">
+                                        <i class="product__star-icon fa-solid fa-star"></i>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="product__price">
+                                <span class="product__price-curent">5.00$</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="product__item">
+                        <div href="" class="product__item-link">
+                            <a href="product.html">
+                                <img src="./Img/7-1.png.webp" alt="" class="product__img">
+                            </a>
+                            <div class="product__action-user">
+                                <ul class="product__list-action-user">
+                                    <li class="product__item-action-user">
+                                        <a href="" class="product__action-user-link">
+                                            <i class="product__action-user-icon fas fa-search"></i>
+                                        </a>
+                                    </li>
+                                    <li class="product__item-action-user">
+                                        <a href="" class="product__action-user-link">
+                                            <i class="product__action-user-icon fa-solid fa-heart"></i>
+                                        </a>
+                                    </li>
+                                    <li class="product__item-action-user">
+                                        <a href="" class="product__action-user-link">
+                                            <i class="product__action-user-icon fa-solid fa-cart-shopping"></i>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="product__item-content">
+                            <a href="product.html" class="item__link">
+                                <h4 class="product__item-name">Red sugar flower</h4>
+                            </a>
+                            <div class="product__types">
+                                <a href="" class="product__type-link">BAKERY</a>
+                                <span class="product__type-separate"> - </span>
+                                <a href="" class="product__type-link">SWEET</a>
+                                <span class="product__type-separate"> - </span>
+                                <a href="" class="product__type-link">BIO</a>
+                            </div>
+
+                            <div class="product__rate">
+                                <ul class="product__list-star">
+                                    <li class="product__rate-star product__rate-star--active">
+                                        <i class="product__star-icon fa-solid fa-star"></i>
+                                    </li>
+                                    <li class="product__rate-star product__rate-star--active">
+                                        <i class="product__star-icon fa-solid fa-star"></i>
+                                    </li>
+                                    <li class="product__rate-star product__rate-star--active">
+                                        <i class="product__star-icon fa-solid fa-star"></i>
+                                    </li>
+                                    <li class="product__rate-star product__rate-star--active">
+                                        <i class="product__star-icon fa-solid fa-star"></i>
+                                    </li>
+                                    <li class="product__rate-star product__rate-star--active">
+                                        <i class="product__star-icon fa-solid fa-star"></i>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="product__price">
+                                <span class="product__price-curent">5.00$</span>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="product__item">
+                        <div href="" class="product__item-link">
+                            <a href="product.html">
+                                <img src="./Img/8-1.png.webp" alt="" class="product__img">
+                            </a>
+                            <div class="product__action-user">
+                                <ul class="product__list-action-user">
+                                    <li class="product__item-action-user">
+                                        <a href="" class="product__action-user-link">
+                                            <i class="product__action-user-icon fas fa-search"></i>
+                                        </a>
+                                    </li>
+                                    <li class="product__item-action-user">
+                                        <a href="" class="product__action-user-link">
+                                            <i class="product__action-user-icon fa-solid fa-heart"></i>
+                                        </a>
+                                    </li>
+                                    <li class="product__item-action-user">
+                                        <a href="" class="product__action-user-link">
+                                            <i class="product__action-user-icon fa-solid fa-cart-shopping"></i>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="product__item-content">
+                            <a href="product.html" class="item__link">
+                                <h4 class="product__item-name">Red sugar flower</h4>
+                            </a>
+                            <div class="product__types">
+                                <a href="" class="product__type-link">BAKERY</a>
+                                <span class="product__type-separate"> - </span>
+                                <a href="" class="product__type-link">SWEET</a>
+                                <span class="product__type-separate"> - </span>
+                                <a href="" class="product__type-link">BIO</a>
+                            </div>
+
+                            <div class="product__rate">
+                                <ul class="product__list-star">
+                                    <li class="product__rate-star product__rate-star--active">
+                                        <i class="product__star-icon fa-solid fa-star"></i>
+                                    </li>
+                                    <li class="product__rate-star product__rate-star--active">
+                                        <i class="product__star-icon fa-solid fa-star"></i>
+                                    </li>
+                                    <li class="product__rate-star product__rate-star--active">
+                                        <i class="product__star-icon fa-solid fa-star"></i>
+                                    </li>
+                                    <li class="product__rate-star product__rate-star--active">
+                                        <i class="product__star-icon fa-solid fa-star"></i>
+                                    </li>
+                                    <li class="product__rate-star product__rate-star--active">
+                                        <i class="product__star-icon fa-solid fa-star"></i>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="product__price">
+                                <span class="product__price-curent">5.00$</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="product__item">
+                        <div href="" class="product__item-link">
+                            <a href="product.html">
+                                <img src="./Img/7-1.png.webp" alt="" class="product__img">
+                            </a>
+                            <div class="product__action-user">
+                                <ul class="product__list-action-user">
+                                    <li class="product__item-action-user">
+                                        <a href="" class="product__action-user-link">
+                                            <i class="product__action-user-icon fas fa-search"></i>
+                                        </a>
+                                    </li>
+                                    <li class="product__item-action-user">
+                                        <a href="" class="product__action-user-link">
+                                            <i class="product__action-user-icon fa-solid fa-heart"></i>
+                                        </a>
+                                    </li>
+                                    <li class="product__item-action-user">
+                                        <a href="" class="product__action-user-link">
+                                            <i class="product__action-user-icon fa-solid fa-cart-shopping"></i>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="product__item-content">
+                            <a href="product.html" class="item__link">
+                                <h4 class="product__item-name">Red sugar flower</h4>
+                            </a>
+                            <div class="product__types">
+                                <a href="" class="product__type-link">BAKERY</a>
+                                <span class="product__type-separate"> - </span>
+                                <a href="" class="product__type-link">SWEET</a>
+                                <span class="product__type-separate"> - </span>
+                                <a href="" class="product__type-link">BIO</a>
+                            </div>
+
+                            <div class="product__rate">
+                                <ul class="product__list-star">
+                                    <li class="product__rate-star product__rate-star--active">
+                                        <i class="product__star-icon fa-solid fa-star"></i>
+                                    </li>
+                                    <li class="product__rate-star product__rate-star--active">
+                                        <i class="product__star-icon fa-solid fa-star"></i>
+                                    </li>
+                                    <li class="product__rate-star product__rate-star--active">
+                                        <i class="product__star-icon fa-solid fa-star"></i>
+                                    </li>
+                                    <li class="product__rate-star product__rate-star--active">
+                                        <i class="product__star-icon fa-solid fa-star"></i>
+                                    </li>
+                                    <li class="product__rate-star product__rate-star--active">
+                                        <i class="product__star-icon fa-solid fa-star"></i>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="product__price">
+                                <span class="product__price-curent">5.00$</span>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+    <!-- Phần Content_Review -->
+    <div class="content">
+        <div class="container">
+            <div class="content__review">
+                <div class="content__list-img">
+                    <img src="./Img/Reviu_1" alt="" class="content__img">
+                </div>
+
+                <div class="content__rate">
+                    <ul class="content__list-star">
+                        <li class="content__rate-star content__rate-star--active">
+                            <i class="content__star-icon fa-solid fa-star"></i>
+                        </li>
+                        <li class="content__rate-star content__rate-star--active">
+                            <i class="content__star-icon fa-solid fa-star"></i>
+                        </li>
+                        <li class="content__rate-star content__rate-star--active">
+                            <i class="content__star-icon fa-solid fa-star"></i>
+                        </li>
+                        <li class="content__rate-star content__rate-star--active">
+                            <i class="content__star-icon fa-solid fa-star"></i>
+                        </li>
+                        <li class="content__rate-star content__rate-star--active">
+                            <i class="content__star-icon fa-solid fa-star"></i>
+                        </li>
+                    </ul>
+
+                    <div class="content__reviewer">
+                        <p class="content__reviewer-p">
+                            “Dessert pudding dessert jelly beans cupcake sweet caramels gingerbread.
+                            Fruitcake biscuit cheesecake. Cookie topping sweet muffin pudding tart bear claw
+                            sugar plum croissant.”
+                        </p>
+                    </div>
+
+
+                    <div class="content__CEO-footer">
+                        <strong class="content__CEO-name">Logan May</strong>
+                        - CEO &amp; Founder Invision
+                    </div>
+
+                    <div class="content__CEO-choice">
+                        <ul class="content__CEO-list-choice">
+                            <li class="content__CEO-item"></li>
+                            <li class="content__CEO-item"></li>
+                            <li class="content__CEO-item"></li>
+                            <li class="content__CEO-item"></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+    <!-- Phần Delivery-Form -->
+    <div class="contactWrap">
+        <div class="contact__delivery">
+            <div class="contact__delivery-form">
+                <div class="contact__email">
+                    <div class="contact__email-content">
+                        <h4 class="contact__email-Office">OFFICE AT AMERICA</h4>
+                        <h5 class="contact__email-address">BASEMENT COMPANY, NEW YORK</h5>
+                        <p class="contact__icon-one">
+                            <i class="fa-solid fa-envelope"></i>
+                            <a href="#" class="contact__link-email">hello@bready.com</a>
+                        </p>
+                        <p class="contact__icon-two">
+                            <i class="fa-solid fa-phone"></i>
+                            <span class="contact__callnumber"> +1 650-253-0000</span>
+                        </p>
+                    </div>
+
+                    <div class="contact__email-content">
+                        <h4 class="contact__email-Office">OFFICE AT PARIS</h4>
+                        <h5 class="contact__email-address">189/32 BASEMENT COMPANY, PARIS, FRANCE</h5>
+                        <p class="contact__icon-one">
+                            <i class="fa-solid fa-envelope"></i>
+                            <a href="#" class="contact__link-email">hello@bready.com</a>
+                        </p>
+                        <p class="contact__icon-two">
+                            <i class="fa-solid fa-phone"></i>
+                            <span class="contact__callnumber"> +1 650-253-0000</span>
+                        </p>
+                    </div>
+
+                    <div class="contact__email-content">
+                        <h4 class="contact__email-Office">OFFICE AT CANADA</h4>
+                        <h5 class="contact__email-address">BASEMENT COMPANY, NEW YORK</h5>
+                        <p class="contact__icon-one">
+                            <i class="fa-solid fa-envelope"></i>
+                            <a href="#" class="contact__link-email">hello@bready.com</a>
+                        </p>
+                        <p class="contact__icon-two">
+                            <i class="fa-solid fa-phone"></i>
+                            <span class="contact__callnumber"> +1 650-253-0000</span>
+                        </p>
+                    </div>
+                </div>
+
+
+                <!-- Phần bên Phải -->
+                <form class="contact__delivery-now">
+                    <h3 class="contact__delivery-title">Delivery Now</h3>
+                    <p class="contact__delivery-des">Delivery free wafer fruitcake.
+                        Pastry toffee wafer gingerbread liquorice.
+                        Apple pie gingerbread caramels toffee tart bonbon.</p>
+
+                    <div class="contact__email-name">
+                        <label for="" class="contact__email-user">Name</label>
+                        <input type="text" class="contact__input-text" placeholder="">
+                    </div>
+
+                    <div class="contact__email-address">
+                        <label for="" class="contact__email-user">Email</label>
+                        <input type="text" class="contact__input-text" placeholder="">
+                    </div>
+
+                    <div class="contact__email-name">
+                        <label for="" class="contact__email-user">Phone Number</label>
+                        <input type="text" class="contact__input-text" placeholder="">
+                    </div>
+
+                    <div class="contact__email-submit">
+                        <button class="contact__email-btn">Order Now</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="ps-footer">
+        <div class="ps-footer__content">
+            <div class="ps-container">
+                <div class="row">
+                    <div class="ps-site-info">
+                        <a class="ps-logo" href="index.html"><img src="./Img/logo-dark.png" alt="" /></a>
+                        <p>
+                            Tart bear claw cake tiramisu chocolate bar gummies dragée lemon
+                            drops brownie.
+                        </p>
+                        <ul class="ps-list--social">
+                            <li>
+                                <a href="#"><i class="fa-brands fa-facebook"></i></a>
+                            </li>
+                            <li>
+                                <a href="#"><i class="fa-brands fa-twitter"></i></a>
+                            </li>
+                            <li>
+                                <a href="#"><i class="fa-brands fa-dribbble"></i></a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="ps-site-contact">
+                        <form action="">
+                            <h4>Get news & offer</h4>
+                            <div class="form-group">
+                                <input class="form-control-footer" type="text" placeholder="Your Email..." />
+                                <button>Subscribe</button>
+                            </div>
+                            <p>* Don't worry, we never spam</p>
+                        </form>
+                        <div class="ps-footer__contact">
+                            <h4>Contact with me</h4>
+                            <p>PO Box 16122 Collins Street West,Victoria 8007 Australia</p>
+                            <p>(+84 ) 7534 9773, (+84 ) 874 548</p>
+                        </div>
+                    </div>
+                    <div class="ps-footer__open">
+                        <h4>Time to Open</h4>
+                        <p>
+                            Monday - Friday: <br />08:00 am - 08:30 pm <br />
+                            Saturday - Sunday:<br />
+                            10:00 am - 16:30 pm
+                        </p>
+                        <ul class="ps-list--payment">
+                            <li>
+                                <a href="#"><img src="./image/visa.png" alt="" /></a>
+                            </li>
+                            <li>
+                                <a href="#"><img src="./image/master-card.png" alt="" /></a>
+                            </li>
+                            <li>
+                                <a href="#"><img src="./image/paypal.png" alt="" /></a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="copyright">© Copyright by <span class="copyright-name">Bready Store</span>. Design by <span
+                class="copyright-author">Alena Studio.</span></div>
+    </div>
+</body>
+
+</html>
